@@ -1,4 +1,4 @@
 package sokoban;
 
-public class Immovable {
+public class Immovable extends Placeable{
 }

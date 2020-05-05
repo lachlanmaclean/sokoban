@@ -5,11 +5,22 @@ public class SokobanMain {
         Game game = new Game();
         game.addLevel("Test1", 5, 6,
                         "######" +
-                        "#+x+.#" +
+                        "#+x..#" +
                         "#..w.#" +
                         "#....#" +
                         "######" );
-
+        game.addLevel("Level2", 6, 5,
+                "######" +
+                        "#+x..#" +
+                        "#..w.#" +
+                        "#....#" +
+                        "######" );
+        game.addLevel("Level3", 6, 5,
+                "######" +
+                        "#+x..#" +
+                        "#..w.#" +
+                        "#....#" +
+                        "######" );
 
 
         System.out.println(game);
