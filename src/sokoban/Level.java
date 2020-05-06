@@ -1,20 +1,23 @@
 package sokoban;
 
+import javax.swing.*;
+import java.awt.print.PrinterGraphics;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Level {
+public class Level extends Game{
     public int completedCount;
     public String name;
     public int height;
     public int width;
     public String levelmap;
-    public int moveCount;
     public int targetCount;
+    public int moveCount;
+    public int totalLevels;
+    protected Placeable[] [] allPlaceable;
 
     public List<String> mapArr = new ArrayList<String>();
-
 
 
 
@@ -23,12 +26,21 @@ public class Level {
         this.height = height;
         this.width = width;
         this.levelmap = levelmap;
-        this.targetCount = getTargetCount();
+
+        int count = 0;
+        for(int i=0; i < this.levelmap.length(); i++)
+        {    if(levelmap.charAt(i) == '+')
+            count++;
+        }
+
+       this.targetCount = count;
+       totalLevels ++;
+
 
 
     }
 
-    public String getLevelmap() {
+    public String getLevelmap() { //-------------------------------------------------------------
 
         int y = 0;
         int x = 0;
@@ -44,27 +56,23 @@ public class Level {
             y++;
 
         }
-
-
-        //return String.format(levelmap.toString());
         return result;
 
     }
 
 
-
-    public String toString(int levelIndex, int totalLevels) {
-
-
+    public String toString() {
 
         String result = "";
+
         result += this.getName()+"\n"; //Level1
         result += getLevelmap(); //#########
         result += "move " + getMoveCount()+ "\n"; //move 0
 
-        //result += levelIndex;
-        //result += totalLevels;
-        result += "completed " + levelIndex +" of " + totalLevels;
+        result += "completed " + this.completedCount + " of " + totalLevels + "\n";
+
+
+
 
         return result;
 
@@ -80,10 +88,7 @@ public class Level {
         return this.name;
     }
 
-    public int getMoveCount() {
-
-        return this.moveCount;
-    }
+    public int getMoveCount() { return this.moveCount; }
 
     public int getHeight() {
         return this.height;
@@ -92,21 +97,5 @@ public class Level {
     public int getWidth() {
         return this.width;
     }
-
-    public int getTargetCount() {
-
-        char target = '+';
-        int count = 0;
-
-        for (int i = 0; i < levelmap.length(); i++) {
-            if (levelmap.charAt(i) == target) {
-                count++;
-            }
-        }
-
-
-
-        return count;
-        }
 
 }
