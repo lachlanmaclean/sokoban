@@ -13,7 +13,7 @@ public class SokobanMain {
 
 
         System.out.println(game);
-        /*
+
         System.out.println(game);
 
         System.out.println("*LEFT*");
@@ -56,7 +56,7 @@ public class SokobanMain {
         game.move(Direction.LEFT);
         System.out.println(game);
 
-        */
+
 
     }
 }

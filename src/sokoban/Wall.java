@@ -1,7 +1,13 @@
 package sokoban;
 
 public class Wall extends Immovable {
-    public Wall(int i, int i1) {
+    int y;
+    int x;
+
+    public Wall(int y, int x) {
+
+        this.y = y;
+        this.x = x;
     }
 
     public String toString(){

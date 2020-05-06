@@ -1,10 +1,5 @@
 package sokoban;
 
-import javax.swing.*;
-import java.awt.print.PrinterGraphics;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Level extends Game{
     public int completedCount;
@@ -15,11 +10,7 @@ public class Level extends Game{
     public int targetCount;
     public int moveCount;
     public int totalLevels;
-    protected Placeable[] [] allPlaceable;
-
-    public List<String> mapArr = new ArrayList<String>();
-
-
+    protected Placeable[][] allPlaceables;
 
     public Level(String name, int height, int width, String levelmap) {
         this.name = name;
@@ -38,25 +29,45 @@ public class Level extends Game{
 
 
 
+
     }
 
     public String getLevelmap() { //-------------------------------------------------------------
-
         int y = 0;
-        int x = 0;
+        int m = 0;
         String result = "";
-        while (y < this.height) {
 
-            String current_line = this.levelmap.substring(x, x + this.width);
-            mapArr.add(current_line);
+        this.allPlaceables = new Placeable[this.height][this.width];
+
+        while (y < this.height) {
+            String current_line = this.levelmap.substring(m, m + this.width);
+            for (int x=0; x < current_line.length();x++){
+
+
+                char c = current_line.charAt(x);
+                if(c == '#'){allPlaceables[y][x] = new Wall(y,x);}
+                if(c == 'x'){allPlaceables[y][x] = new Crate(y,x, null);}
+                if(c == '+'){allPlaceables[y][x] = new Target(y,x);}
+                if(c == '.'){allPlaceables[y][x] = new Empty(y,x);}
+                if(c == 'w'){allPlaceables[y][x] = new Worker(y,x, null);}
+
+
+            }
 
             //System.out.print(current_line);
-            result += current_line + "\n";
-            x += this.width;
+            m += this.width;
             y++;
 
         }
-        return result;
+
+        for (Placeable[] aPlaceable : allPlaceables){
+            result+="\n";
+            for (Placeable row: aPlaceable){
+                result+= row;
+            }
+
+        }
+        return result+"\n";
 
     }
 
@@ -65,19 +76,16 @@ public class Level extends Game{
 
         String result = "";
 
-        result += this.getName()+"\n"; //Level1
+        result += this.getName(); //Level1
         result += getLevelmap(); //#########
         result += "move " + getMoveCount()+ "\n"; //move 0
 
         result += "completed " + this.completedCount + " of " + totalLevels + "\n";
 
 
-
-
         return result;
 
     }
-
 
     public int getCompletedCount() {
         return this.completedCount;

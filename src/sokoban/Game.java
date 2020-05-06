@@ -59,9 +59,13 @@ public class Game{
         return leveltitles;
     }
 
-    public void move(Object right) {
+    public void move(Direction right) {
 
-    }
+
+
+
+
+        }
 
     public String toString() {
         String result = "";
@@ -72,7 +76,7 @@ public class Game{
         }
         else
             result += this.allMyLevels.get(LevelIndex).toString(); //LEVEL. ToSTRING
-        System.out.println(getLevelCount());
+
 
         return result;
 

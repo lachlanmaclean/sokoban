@@ -1,4 +1,5 @@
 package sokoban;
 
-public class Enterable {
+public class Enterable extends Placeable{
+
 }
