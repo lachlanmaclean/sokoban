@@ -3,9 +3,10 @@ package testing_sokoban;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import sokoban.Level;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestLevel {
 
@@ -64,7 +65,7 @@ class TestLevel {
 		String errorMessage = "Wanted\n" + expectedLevelString
 				+ "\nGOT\n"
 				+ actualLevelString;
-		//assertTrue(expectedLevelString.equals(actualLevelString), errorMessage);
+		assertTrue(expectedLevelString.equals(actualLevelString), errorMessage);
 	}
 }
 

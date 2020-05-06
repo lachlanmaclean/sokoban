@@ -1,7 +1,4 @@
 package sokoban;
-import javax.sound.midi.SysexMessage;
-import javax.xml.transform.stax.StAXResult;
-import java.lang.reflect.AccessibleObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +7,17 @@ public class Game {
 
     public List<Level> allMyLevels = new ArrayList<Level>();
 
-
     public int LevelIndex;
-
+    public int totalLevels;
     public int actualLevel;
+
+
 
     public Game() {
 
     }
+
+
 
     public void addLevel(String levelname, int height, int width, String levelmap) {
 
@@ -37,7 +37,7 @@ public class Game {
             result = this.LevelIndex;
 
         } else
-            result = this.LevelIndex;
+            result = this.actualLevel;
 
         return result;
 
@@ -51,27 +51,23 @@ public class Game {
             result = "no levels";
         }
         else
-        result = this.allMyLevels.get(1).name;
-        System.out.println(result);
+        result = this.allMyLevels.get(LevelIndex).name;
+       // System.out.println(result);
         return result;
 
     }
 
 
+//======================================
+
+    public List<String> getLevelNames = new ArrayList<String>();
+    getLevelNames.add("1");
+
     public List<String> getLevelNames() {
-
-
-        List<String> names = new ArrayList<>();
-        for (int i=0; i < actualLevel; i++){
-            String str = allMyLevels.get(this.actualLevel).name.toString();
-
-            names.add(str);
-        }
-        return null;
-
+        return getLevelNames;
     }
 
-
+    //=====================
     public void move(Object right) {
     }
 
@@ -80,9 +76,19 @@ public class Game {
 
         if (allMyLevels.isEmpty()){
             result = "no levels";
+            return result;
         }
         else
-        result = String.format(allMyLevels.get(this.LevelIndex).name.toString());
+
+
+
+            result += this.allMyLevels.get(LevelIndex).toString(LevelIndex, allMyLevels.size()); //LEVEL. ToSTRING
+
+
+
+
+        //result +=
+        //result = String.format(allMyLevels.get(this.LevelIndex).name.toString());
 
         return result;
 

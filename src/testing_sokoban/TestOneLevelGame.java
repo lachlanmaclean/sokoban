@@ -1,5 +1,5 @@
 package testing_sokoban;
-import sokoban.*;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sokoban.*;
 
 class TestOneLevelGame {
 	
@@ -15,6 +16,7 @@ class TestOneLevelGame {
 	@BeforeEach
 	void setUp() throws Exception {
 		this.game = new Game();
+
 		this.game.addLevel("Level1", 6, 5,
 				"######" +
 				"#+x..#" + 
@@ -51,7 +53,9 @@ class TestOneLevelGame {
 		int expectedLevelNamesCount = 1;
 		List<String> levelNames = game.getLevelNames();
 		boolean actuallyIsEmpty = levelNames.isEmpty();
+
 		int actualLevelNamesCount = levelNames.size();
+		System.out.println(actualLevelNamesCount);
 		assertFalse(actuallyIsEmpty);
 		assertEquals(expectedLevelNamesCount, actualLevelNamesCount);
 

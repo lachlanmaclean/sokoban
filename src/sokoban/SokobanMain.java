@@ -9,18 +9,7 @@ public class SokobanMain {
                         "#..w.#" +
                         "#....#" +
                         "######" );
-        game.addLevel("Level2", 6, 5,
-                "######" +
-                        "#+x..#" +
-                        "#..w.#" +
-                        "#....#" +
-                        "######" );
-        game.addLevel("Level3", 6, 5,
-                "######" +
-                        "#+x..#" +
-                        "#..w.#" +
-                        "#....#" +
-                        "######" );
+
 
 
         System.out.println(game);

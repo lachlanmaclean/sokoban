@@ -3,22 +3,24 @@ package testing_sokoban;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sokoban.*;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import sokoban.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestEmptyGame {
 
 	Game game;
 
+
+
 	@BeforeEach
 	void setUp() throws Exception {
+	this.game = new Game();
 
 
-		this.game = new Game();
 	}
 
 	@Test

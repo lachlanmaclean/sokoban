@@ -1,17 +1,7 @@
 package testing_sokoban;
-import sokoban.*;
-
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 class TestPlaceableSymbols {
-
 /*
+
 	@Test
 	void testEmptySymbol() {
 		Placeable placeable = new Empty(1,1);
@@ -91,8 +81,8 @@ class TestPlaceableSymbols {
 		String expectedSymbol = "x";
 		assertEquals(expectedSymbol, actualSymbol);
 	}
+*/
 
 
- */
 
 }
