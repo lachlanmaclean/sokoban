@@ -1,7 +1,7 @@
 package sokoban;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 public class Game{
 
@@ -9,6 +9,9 @@ public class Game{
 
     public int LevelIndex;
     public static int totalLevels=0;
+    public int gameWidth;
+
+
 
     public Game() {
 
@@ -18,8 +21,8 @@ public class Game{
 
         Level level = new Level(levelname, height, width, levelmap);
         this.allMyLevels.add(level);
+        this.gameWidth = width;
 
-        this.totalLevels = this.totalLevels + 10;
 
         this.LevelIndex = allMyLevels.size()-1;
 
@@ -59,10 +62,45 @@ public class Game{
         return leveltitles;
     }
 
-    public void move(Direction right) {
 
 
+    public void move(Direction direction) {
+        int workerx = 0;
+        int workery =0;
 
+        //Get Worker Position
+        Placeable[][] thePlaceables = this.allMyLevels.get(LevelIndex).allPlaceables;
+        for(int y =0;y<thePlaceables.length;y++){
+            for(int x = 0; x < gameWidth; x++){
+                if(thePlaceables[y][x].toString() == "w"){
+
+
+                    System.out.println(String.format("Worker is at [%s][%s]", x, y));
+                    workerx = x;
+                    workery = y;
+                }
+            }
+        }
+        //Get Worker Position
+
+        switch (direction){
+            case RIGHT:
+                break;
+            case LEFT:
+                int xoffset = workerx + direction.getX();
+                int yoffset = workery + direction.getY();
+                System.out.println(String.format("Worker wants to go to [%s][%s]", xoffset, yoffset));
+
+                System.out.println("LEFT IS PRESSED");
+
+               break;
+            case UP:
+                break;
+            case DOWN:
+                break;
+
+
+        }
 
 
         }

@@ -1,6 +1,6 @@
 package sokoban;
 
-public class Empty extends Enterable{
+public class Empty extends Placeable{
     int y;
     int x;
     public boolean workerActive;

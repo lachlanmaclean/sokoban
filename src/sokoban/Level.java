@@ -10,9 +10,11 @@ public class Level extends Game{
     public int targetCount;
     public int moveCount;
     public int totalLevels;
-    protected Placeable[][] allPlaceables;
+    public Placeable[][] allPlaceables;
 
     public Level(String name, int height, int width, String levelmap) {
+
+
         this.name = name;
         this.height = height;
         this.width = width;
@@ -26,10 +28,6 @@ public class Level extends Game{
 
        this.targetCount = count;
        totalLevels ++;
-
-
-
-
     }
 
     public String getLevelmap() { //-------------------------------------------------------------
@@ -96,7 +94,7 @@ public class Level extends Game{
         return this.name;
     }
 
-    public int getMoveCount() { return this.moveCount; }
+    public int getMoveCount() { return this.moveCount++; }
 
     public int getHeight() {
         return this.height;

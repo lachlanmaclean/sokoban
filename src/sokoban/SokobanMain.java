@@ -14,8 +14,6 @@ public class SokobanMain {
 
         System.out.println(game);
 
-        System.out.println(game);
-
         System.out.println("*LEFT*");
         game.move(Direction.LEFT);
         System.out.println(game);
